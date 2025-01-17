@@ -9,7 +9,8 @@ const teamMembers = [
   {
     id: 1,
     name: 'Nahom Keneni',
-    role: 'CEO , Backend Engineer and Blockchain developer ',
+    role: 'CEO   ',
+    special:' Full stack developer specialized at Backend Engineering and Blockchain development',
     image: '/nahom.jpg',
     linkedin: 'https://linkedin.com/in/Nahom',
     twitter: 'https://twitter.com/Nahom',
@@ -18,7 +19,8 @@ const teamMembers = [
   {
     id: 2,
     name: 'Keku kellemwork',
-    role: ' Marketing Manager and Video Editor',
+    role: ' Marketing Manager ',
+    special:' senior Video Editor and Digital marketing expert',
     image: '/keku.jpg',
     linkedin: 'https://linkedin.com/in/birukf',
     twitter: 'https://twitter.com/birukf',
@@ -27,7 +29,8 @@ const teamMembers = [
   {
     id: 3,
     name: 'Biruk Getachew',
-    role: 'Mern stack with Ai',
+    role: 'CTO',
+    special:' Mern stack, Web Designer, AI Engineer ',
     image: '/156351009.jpg',
     linkedin: 'https://linkedin.com/in/Kaleb',
     twitter: 'https://twitter.com/Kaleb',
@@ -92,6 +95,7 @@ const Team = ({isVisible}) => {
                   <FontAwesomeIcon icon={faSolidUserCircle} size="lg" />
                 </a>
               </div>
+              <p  className="text-blue-600 text-center cursor-pointer">more</p>
             </div>
           </div>
         ))}
@@ -113,6 +117,7 @@ const Team = ({isVisible}) => {
               />
               <h3 className="text-xl font-semibold text-gray-800">{detailid.name}</h3>
               <p className="text-gray-600">{detailid.role}</p>
+              <p className="text-gray-500">{detailid.special}</p>
               <div className="flex justify-center mt-4 space-x-4">
                 <a
                   href={detailid.linkedin}

@@ -6,7 +6,7 @@ const GooglePlacesAutocomplete = () => {
       const map = new window.google.maps.Map(document.getElementById("map"), {
         center: { lat: 11.595, lng: 37.3908 },
         zoom: 16,
-        mapTypeId: "satellite",
+        mapTypeId: "hybrid", // Use 'hybrid' for satellite imagery with labels
       });
 
       const input = document.getElementById("pac-input");
