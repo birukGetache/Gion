@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'; // Import Leaflet styles
 
 const MapComponent = () => {
   // Coordinates for Bahir Dar, Ethiopia
-     center={[11.5920, 37.3433]}
+     center={[11.3620, 37.2433]}
   const zoom = 13; // Zoom level
 
   return (
