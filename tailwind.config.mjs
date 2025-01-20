@@ -15,27 +15,17 @@ export default {
         cursive: ['"Comic Sans MS"', 'cursive', 'sans-serif'], // Add a cursive font
       },
       keyframes: {
-        aboutanime: {
-          from: { transform: "translateY(300px)" },
-          to: { transform: "translateX(0px)" },
-        },
-        serviceanime: {
-          from: { transform: "translateY(100px)" },
-          to: { transform: "translateX(0px)" },
-        },
         'gradient-motion': {
-          '0%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-          '100%': { backgroundPosition: '0% 50%' },
+          '0%': { backgroundPosition: '0% 0%' },
+          '50%': { backgroundPosition: '100% 100%' },
+          '100%': { backgroundPosition: '0% 0%' },
         },
       },
       animation: {
-        aboutanime: "aboutanime 1s ease-out", // Animation for about section
-        serviceanime: "serviceanime 1s ease-out", // Animation for service section
-        'gradient-motion': "gradient-motion 3s ease infinite", // Gradient motion animation
+        'gradient-motion': "gradient-motion 3s linear infinite", // Gradient motion animation
       },
       backgroundSize: {
-        '200%': '200%', // Extended background size for gradient motion
+        '400%': '400%', // Extended background size for smoother animation
       },
     },
   },
