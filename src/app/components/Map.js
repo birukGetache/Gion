@@ -1,42 +1,25 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-
-// Fix default marker icon issue in Leaflet
 import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-  iconAnchor: [12, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
+import 'leaflet/dist/leaflet.css'; // Import Leaflet styles
 
 const MapComponent = () => {
-  return (
-    <div style={{ height: '100vh', width: '100%' }}>
-      <MapContainer
-        center={[51.505, -0.09]} // Default coordinates [latitude, longitude]
-        zoom={13} // Default zoom level
-        style={{ height: '100%', width: '100%' }}
-      >
-        {/* Add a tile layer (map style) */}
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+  // Coordinates for Bahir Dar, Ethiopia
+  const position = [11.5925, 37.3833]; 
+  const zoom = 13; // Zoom level
 
-        {/* Add a marker */}
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A marker at the center. <br /> Easily customizable!
-          </Popup>
-        </Marker>
-      </MapContainer>
-    </div>
+  return (
+    <MapContainer center={position} zoom={zoom} style={{ height: "100vh", width: "100%" }}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={position}>
+        <Popup>
+          A simple marker at coordinates {position[0]}, {position[1]} (Bahir Dar).
+        </Popup>
+      </Marker>
+    </MapContainer>
   );
 };
 
