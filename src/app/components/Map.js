@@ -19,7 +19,7 @@ const MapComponent = () => {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <MapContainer
-        center={[51.505, -0.09]} // Default coordinates [latitude, longitude]
+        center={[11.36505, 37.2309]} // Default coordinates [latitude, longitude]
         zoom={13} // Default zoom level
         style={{ height: '100%', width: '100%' }}
       >
