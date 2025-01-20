@@ -56,7 +56,9 @@ const Team = ({ isVisible }) => {
     if (person) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowX = "hidden";
+      document.body.style.overflowY = "auto";
+      
     }
   }, [person]);
 
