@@ -17,10 +17,10 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapComponent = () => {
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div className="relative" style={{ height: '100vh', width: '100%' }}>
       <MapContainer
-      center={[11.5920, 37.3833]}  // Default coordinates [latitude, longitude]
-        zoom={13} // Default zoom level
+        center={[11.5920, 37.3833]} // Coordinates for Bahir Dar, Ethiopia
+        zoom={13} // Zoom level
         style={{ height: '100%', width: '100%' }}
       >
         {/* Add a dark-themed tile layer */}
@@ -30,12 +30,15 @@ const MapComponent = () => {
         />
 
         {/* Add a marker */}
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={[11.5920, 37.3833]}>
           <Popup>
-            A marker at the center. <br /> Easily customizable!
+            Welcome to Bahir Dar! <br /> A beautiful city in Ethiopia.
           </Popup>
         </Marker>
       </MapContainer>
+      
+      {/* Slate Gray Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full bg-slate-700 opacity-50"></div>
     </div>
   );
 };
