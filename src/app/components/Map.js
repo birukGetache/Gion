@@ -17,28 +17,25 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapComponent = () => {
   return (
-    <div className="relative" style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '100vh', width: '100%' }}>
       <MapContainer
-        center={[11.5920, 37.3833]} // Coordinates for Bahir Dar, Ethiopia
-        zoom={13} // Zoom level
+        center={[51.505, -0.09]} // Default coordinates [latitude, longitude]
+        zoom={13} // Default zoom level
         style={{ height: '100%', width: '100%' }}
       >
-        {/* Add a dark-themed tile layer */}
+        {/* Add a tile layer (map style) */}
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://carto.com/attributions">CartoDB</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
 
         {/* Add a marker */}
-        <Marker position={[11.5920, 37.3833]}>
+        <Marker position={[51.505, -0.09]}>
           <Popup>
-            Welcome to Bahir Dar! <br /> A beautiful city in Ethiopia.
+            A marker at the center. <br /> Easily customizable!
           </Popup>
         </Marker>
       </MapContainer>
-      
-      {/* Slate Gray Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-slate-700 opacity-50"></div>
     </div>
   );
 };
