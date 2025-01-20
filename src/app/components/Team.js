@@ -36,6 +36,16 @@ const teamMembers = [
     twitter: 'https://twitter.com/Kaleb',
     profile: 'https://example.com/Kaleb',
   },
+  {
+    id: 4,
+    name: 'Danawit Habtamu',
+    role: 'Frontend and UI/UX designer',
+    special:' Frontend developer and website designer ',
+    image: '/danawit.png',
+    linkedin: 'https://www.linkedin.com/in/danawit-habtamu-203722338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+    twitter: 'https://twitter.com/Kaleb',
+    profile: 'https://example.com/Kaleb',
+  },
   
 ];
 
