@@ -28,7 +28,7 @@ const DynamicHome = dynamic(
               });
               setVisibleSections(newVisibleSections);
             },
-            { threshold: [0.2, 1] }
+            { threshold: [0.4, 1] }
           );
 
           sections.forEach((section) => observer.observe(section));
