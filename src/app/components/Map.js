@@ -19,7 +19,7 @@ const MapComponent = () => {
   return (
     <div style={{ height: '100vh', width: '100%' }}>
       <MapContainer
-        center={[11.3655, 37.2309]} // Default coordinates [latitude, longitude]
+        center={[ 11.59364000 ,37.39077000  ]} // Default coordinates [latitude, longitude]
         zoom={13} // Default zoom level
         style={{ height: '100%', width: '100%' }}
       >
@@ -30,7 +30,7 @@ const MapComponent = () => {
         />
 
         {/* Add a marker */}
-        <Marker position={[11.3655, 37.2309]}>
+        <Marker position={[ 11.59364000 ,37.39077000  ]} >
           <Popup>
             A marker at the center. <br /> Easily customizable!
           </Popup>
