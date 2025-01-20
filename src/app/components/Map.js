@@ -1,105 +1,43 @@
-import React, { useEffect } from "react";
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
-const GooglePlacesAutocomplete = () => {
-  useEffect(() => {
-    const initMap = () => {
-      const map = new window.google.maps.Map(document.getElementById("map"), {
-        center: { lat: 11.595, lng: 37.3908 },
-        zoom: 16,
-        mapTypeId: "hybrid", // Use 'hybrid' for satellite imagery with labels
-      });
+// Fix default marker icon issue in Leaflet
+import L from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-      const input = document.getElementById("pac-input");
-      const autocomplete = new window.google.maps.places.Autocomplete(input);
-      autocomplete.bindTo("bounds", map);
+let DefaultIcon = L.icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconAnchor: [12, 41],
+});
 
-      autocomplete.addListener("place_changed", () => {
-        const place = autocomplete.getPlace();
-        if (!place.geometry) {
-          console.log(
-            "No details available for the input: '" + place.name + "'"
-          );
-          return;
-        }
+L.Marker.prototype.options.icon = DefaultIcon;
 
-        if (place.geometry.viewport) {
-          map.fitBounds(place.geometry.viewport);
-        } else {
-          map.setCenter(place.geometry.location);
-          map.setZoom(17);
-        }
-
-        new window.google.maps.Marker({
-          position: place.geometry.location,
-          map: map,
-        });
-      });
-    };
-
-    const loadGoogleMapsScript = () => {
-      if (!window.loadingGoogleApi) {
-        // Store the promise to ensure script is only loaded once
-        window.loadingGoogleApi = new Promise((resolve, reject) => {
-          const existingScript = document.querySelector(
-            `script[src*="https://maps.googleapis.com/maps/api/js"]`
-          );
-
-          if (!existingScript) {
-            const googleMapsScript = document.createElement("script");
-            googleMapsScript.src = `https://maps.gomaps.pro/maps/api/js?key=AlzaSy3KKjt_C6-YWFSmiBk2pqY7myZWSu_pjdY&libraries=geometry,places&callback=initMap`;
-            googleMapsScript.async = true;
-            googleMapsScript.defer = true;
-
-            googleMapsScript.onload = resolve;
-            googleMapsScript.onerror = reject;
-
-            window.initMap = initMap; // Attach the callback to the global scope
-            document.head.appendChild(googleMapsScript);
-          } else if (window.google && window.google.maps) {
-            resolve(); // Script is already loaded
-          }
-        });
-      }
-
-      // Use the stored promise to initialize the map
-      window.loadingGoogleApi.then(() => {
-        if (window.google && window.google.maps) {
-          initMap();
-        }
-      });
-    };
-
-    loadGoogleMapsScript();
-
-    return () => {
-      // Clean up global callback on unmount if needed
-      delete window.initMap;
-    };
-  }, []);
-
+const MapComponent = () => {
   return (
-    <div>
-      <input
-        id="pac-input"
-        type="text"
-        placeholder="Search for a place"
-        style={{
-          marginTop: "10px",
-          width: "300px",
-          padding: "5px",
-          fontSize: "14px",
-          display: "none",
-        }}
-      />
-      <div
-        id="map"
-        style={{
-          height: "400px",
-          width: "100%",
-        }}
-      ></div>
+    <div style={{ height: '100vh', width: '100%' }}>
+      <MapContainer
+        center={[51.505, -0.09]} // Default coordinates [latitude, longitude]
+        zoom={13} // Default zoom level
+        style={{ height: '100%', width: '100%' }}
+      >
+        {/* Add a dark-themed tile layer */}
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://carto.com/attributions">CartoDB</a> contributors'
+        />
+
+        {/* Add a marker */}
+        <Marker position={[51.505, -0.09]}>
+          <Popup>
+            A marker at the center. <br /> Easily customizable!
+          </Popup>
+        </Marker>
+      </MapContainer>
     </div>
   );
 };
 
-export default GooglePlacesAutocomplete;
+export default MapComponent;
