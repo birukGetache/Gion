@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,27 +18,30 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    // Dynamically inject Tawk.to script
+    const Tawk_API = Tawk_API || {};
+    const Tawk_LoadStart = new Date();
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://embed.tawk.to/678de9003a842732607179b2/1ii15cblb";
+    script.charset = "UTF-8";
+    script.setAttribute("crossorigin", "*");
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script if needed
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <html lang="en">
-      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark-theme`}
       >
         {children}
-
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/678de9003a842732607179b2/1ii15cblb';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-
-
       </body>
     </html>
   );
