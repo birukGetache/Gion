@@ -105,11 +105,12 @@ const Team = ({isVisible}) => {
                   <FontAwesomeIcon icon={faSolidUserCircle} size="lg" />
                 </a>
               </div>
-    <button
-  className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-blue-500 to-rose-500 animate-gradient-motion rounded-lg text-center cursor-pointer p-2"
+   <button
+  className="bg-gradient-to-r from-rose-500 via-blue-500 to-rose-500 text-white rounded-lg text-center cursor-pointer p-2 animate-gradient-motion"
 >
   more
 </button>
+
 
             </div>
           </div>
