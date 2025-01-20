@@ -52,15 +52,20 @@ const Team = ({ isVisible }) => {
   const [person, setPerson] = useState(false);
   const [detailid, setDetailid] = useState({});
 
-  useEffect(() => {
-    if (person) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflowX = "hidden";
-      document.body.style.overflowY = "auto";
-      
-    }
-  }, [person]);
+ useEffect(() => {
+  if (person) {
+    document.body.style.overflowY = "hidden"; // Disable horizontal scrolling
+  } else {
+    document.body.style.overflowY = "auto"; // Restore horizontal scrolling
+    document.body.style.overflowX = "hidden"; // Restore horizontal scrolling
+  }
+
+  // Cleanup function to ensure horizontal scrolling is restored if the component unmounts
+  return () => {
+    document.body.style.overflowX = "auto";
+  };
+}, [person]);
+
 
   return (
     <section
