@@ -94,7 +94,7 @@ const Team = ({isVisible}) => {
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-600"
                 >
-                  <FontAwesomeIcon icon={faTwitter} size="lg" />
+                  <FontAwesomeIcon icon={faTelegram} size="lg" />
                 </a>
                 <a
                   href={member.profile}
