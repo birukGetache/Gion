@@ -24,10 +24,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark-theme`}
       >
         {children}
-        <Script
-          src="https://embed.tawk.to/678de9003a842732607179b2/1ii15cblb"
-          strategy="afterInteractive" // Load script after page is interactive
-        />
+
       </body>
     </html>
   );
