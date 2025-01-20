@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faTwitter, faTelegram } from '@fortawesome/free-brands-svg-icons'; // Importing Telegram icon
 import { faUserCircle as faSolidUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const teamMembers = [
@@ -143,7 +143,7 @@ const Team = ({isVisible}) => {
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-600"
                 >
-                  <FontAwesomeIcon icon={faTwitter} size="lg" />
+                  <FontAwesomeIcon icon={faTelegram} size="lg" />
                 </a>
                 <a
                   href={detailid.profile}
